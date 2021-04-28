@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="{{url_for('static', filename='js/herb.js')}}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/herb.css') }}">
+
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Pie chart displaying different plant based medicines. Click a section to learn more! All information comes from <a href="https://www.nccih.nih.gov/health/herbsataglance">The National Center for Complementary and Integrative Health</a>
+    </p>
+</figure>
+
+<script>
+names = {{ herbs['Name'] }}
+para1 = {{  herbs['Info1'] }}
+para2 = {{ herbs['Info2'] }}
+link = {{ herbs['Link'] }}
+at = {{ herbs['AT'] }}
+</script>
+
+<h1>  Herbs </h1>
+<p><a href="{{ url_for('index') }}">Return to the main page.</a></p>
+<p><a href="{{ url_for( 'alternative') }}"> General Medicines</a></p>
+<p><a href="{{ url_for( 'gem') }}"> Healing Gems</a></p>
+{% endblock %}

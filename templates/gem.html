@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="{{url_for('static', filename='js/gem.js')}}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/gem.css') }}">
+
+
+<figure class="highcharts-figure">
+
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Bubble chart displaying different types of gems. Click a bubble to learn more! All information comes from <a href="http://www.gemologyproject.com/wiki/index.php?title=Alphabetic_list_by_gemstone_name">The Gemology Project.</a>
+    </p>
+</figure>
+<script>
+names = {{ gem['Name'] }}
+para1 = {{  gem['Info1'] }}
+para2 = {{ gem['Info2'] }}
+link = {{ gem['Link'] }}
+at = {{ gem['AT'] }}
+</script>
+<h1>  Gems </h1>
+<p><a href="{{ url_for('index') }}">Return to the main page.</a></p>
+<p><a href="{{ url_for( 'herbs') }}"> Herbs</a></p>
+<p><a href="{{ url_for( 'alternative') }}"> General Medicines</a></p>
+{% endblock %}

@@ -1,0 +1,39 @@
+
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles %}
+{{ super() }}
+	<style>
+		body { background:  #C0DEDA;
+    padding: 2rem }
+    html{
+      display: block;
+      margin: 1rem;
+      padding: 2rem;
+      background: #C2CBE4;
+    }
+	</style>
+{% endblock %}
+
+{% block title %}
+Alternative Healing
+{% endblock %}
+
+{% block content %}
+
+<h1> Alternative Medicines</h1>
+
+<p> This page let's users explore different types of alternative healing methods. Click a link below and explore the different pages!</p>
+
+<body>
+      <p><a href="{{ url_for( 'alternative') }}"> General Medicines</a></p>
+      <p><a href="{{ url_for( 'gem') }}"> Healing Gems</a></p>
+      <p><a href="{{ url_for( 'herbs') }}"> Herbs</a></p>
+			  <footer> This page was made by Zora Viel. Check out their <a href=""> Github</a> for more of their work.</footer>
+</body>
+
+{{ wtf.quick_form(form) }}
+
+
+{% endblock %}

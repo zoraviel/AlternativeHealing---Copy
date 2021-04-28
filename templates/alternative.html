@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/data.js"></script>
+<script src="https://code.highcharts.com/modules/heatmap.js"></script>
+<script src="https://code.highcharts.com/modules/treemap.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="{{url_for('static', filename='js/general.js')}}"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles/general.css') }}">
+
+<figure class="highcharts-figure">
+    <div id="container"></div>
+    <p class="highcharts-description">
+        Tree chart displaying different types of alternative medicines. Click a section to learn more! All information comes from <a href="https://en.wikipedia.org/wiki/List_of_forms_of_alternative_medicine">Wikipedia</a>
+    </p>
+</figure>
+
+<h1>  General Healing </h1>
+<p><a href="{{ url_for('index') }}">Return to the main page.</a></p>
+<p><a href="{{ url_for( 'gem') }}"> Healing Gems</a></p>
+<p><a href="{{ url_for( 'herbs') }}"> Herbs</a></p>
+
+
+{% endblock %}
